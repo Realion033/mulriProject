@@ -30,6 +30,7 @@ public class CoinManager : MonoBehaviour
             if (spawnPoint.childCount == 0)
             {
                 Instantiate(coinPrefab, spawnPoint.position, Quaternion.identity, spawnPoint);
+
                 numCoinsSpawned++;
             }
         }

@@ -21,15 +21,15 @@ public class MouseLook : MonoBehaviour
 
     private void Update()
     {
-        if (!uiManager.UIactive) // UI가 활성화되지 않은 상태에서만 마우스 움직임 처리
-        {
+        
+        
             float rotationY = Input.GetAxis("Mouse X") * mouseSensitivity;
             rotationX -= Input.GetAxis("Mouse Y") * mouseSensitivity;
             rotationX = Mathf.Clamp(rotationX, -90, 90);
 
             transform.parent.Rotate(0, rotationY, 0);
             transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        }
+        
 
         
     }
