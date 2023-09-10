@@ -20,6 +20,7 @@ public class Move : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         uiManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -36,31 +37,31 @@ public class Move : MonoBehaviour
     {
         
 
-            float moveX = Input.GetAxis("Horizontal");
-            float moveZ = Input.GetAxis("Vertical");
-            Vector3 move = transform.right * moveX + transform.forward * moveZ;
-            rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
 
             // 점프 처리
-            if (Input.GetButtonDown("Jump") && isGrounded)
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                isGrounded = false;
-            }
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
 
             // 움직일 때 오디오 재생
-            if (moveX != 0 || moveZ != 0)
+        if (moveX != 0 || moveZ != 0)
+        {
+            if (!Asu.isPlaying)
             {
-                if (!Asu.isPlaying)
-                {
-                    Asu.Play();
-                }
+                Asu.Play();
             }
-            else
-            {
+        }
+        else
+        {
                 // 멈출 때 오디오 정지
-                Asu.Stop();
-            }
+            Asu.Stop();
+        }
             // 이동 처리
         
        

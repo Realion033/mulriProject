@@ -12,6 +12,7 @@ public class OXQuestion
 
 public class UIManager : MonoBehaviour
 {
+    public Color fogColor = Color.gray;
     public MonsterController ms;
     public bool isMovementEnabled = true;
     public GameObject EscPanel;
@@ -119,6 +120,7 @@ public class UIManager : MonoBehaviour
         {
             exit.SetActive(true);
             coinText.text = "≈ª√‚±∏∞° ø≠∑»Ω¿¥œ¥Ÿ!";
+            RenderSettings.fogColor = fogColor;
             ms.IncreaseSpeed();
         }
     }
