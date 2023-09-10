@@ -43,11 +43,11 @@ public class Move : MonoBehaviour
         rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
 
             // 점프 처리
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
+        //if (Input.GetButtonDown("Jump") && isGrounded)
+        //{
+        //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //    isGrounded = false;
+        //}
 
             // 움직일 때 오디오 재생
         if (moveX != 0 || moveZ != 0)
